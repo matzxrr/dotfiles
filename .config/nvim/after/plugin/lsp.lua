@@ -88,7 +88,7 @@ cmp.setup {
             if cmp.visible() then
                 cmp.select_next_item()
             elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_of_jump()
+                luasnip.expand_or_jump()
             else
                 fallback()
             end
@@ -108,5 +108,4 @@ cmp.setup {
         { name = "luasnip" },
     },
 }
-
 
