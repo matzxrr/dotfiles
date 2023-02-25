@@ -5,11 +5,11 @@ vim.g.netrw_banner = 0 -- Hide banner
 
 local opt = vim.opt
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smartindent = true
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.smartindent = true
 
 opt.mouse = nil
 opt.autowrite = true -- Save on next
@@ -39,13 +39,13 @@ opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes" -- Always show the signcolum, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
-opt.spelllang = { "en" }
+opt.spelllang = { "en", "cjk" }
+opt.spellsuggest = "best,9"
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true --Put new windows right of current
 -- opt.termguicolors = true -- True color support
 opt.timeoutlen = 300
 opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Comand-Line completion mode

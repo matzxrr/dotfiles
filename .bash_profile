@@ -90,19 +90,14 @@ set_prompts() {
         # check if we're in a git repo. (fast)
         git rev-parse --is-inside-work-tree &>/dev/null || return
 
-        # check for what branch we're on. (fast)
-        # if… HEAD isn’t a symbolic ref (typical branch),
-        # then… get a tracking remote branch or tag
-        # otherwise… get the short SHA for the latest commit
-        # lastly just give up.
-        branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-            git describe --all --exact-match HEAD 2> /dev/null || \
-            git rev-parse --short HEAD 2> /dev/null || \
-            echo '(unknown)')";
-
+        # Get branch Name
+        branchName="$(git symbolic-ref HEAD 2>/dev/null)" || branchName="(unnamed branch)"     # detached HEAD
+        branchName=${branchName##refs/heads/}
 
         # check if it's dirty
-        dirty=$(git diff --no-ext-diff --quiet --ignore-submodules --exit-code || echo "*")
+        if [[ -n $(git status --porcelain) ]]; then
+            dirty="*";
+        fi
 
         # mathias has a few more checks some may like:
         # github.com/mathiasbynens/dotfiles/blob/a8bd0d4300/.bash_prompt#L30-L43

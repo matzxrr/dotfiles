@@ -30,4 +30,12 @@ return {
             pcall(require('nvim-treesitter.install').update { with_sync = true })
         end,
     },
+
+    -- Harpoon Man
+    {
+        "ThePrimeagen/harpoon",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+        },
+    },
 }
