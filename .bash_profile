@@ -79,8 +79,8 @@ set_prompts() {
 
         userhost="${silver}$MULTI_FIRST"
         userhost+="${yellow} $MACHINE $USER "
-        userhost+="${teal}at "
-        userhost+="${purple}$SERVER_ICON$HOSTNAME "
+        # userhost+="${teal}at "
+        # userhost+="${purple}$SERVER_ICON$HOSTNAME "
         userhost+="${teal}in"
 
         if [ $USER != "$default_username" ]; then echo $userhost ""; fi
@@ -127,7 +127,7 @@ set_prompts() {
     # | Subshell prompt string                                         |
     # ------------------------------------------------------------------
 
-    export PS2="\[$red\] \[$reset\]"
+    export PS2="\[$red\] \[$reset\]"
 
 }
 
