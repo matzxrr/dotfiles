@@ -2,6 +2,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 vim.g.netrw_banner = 0 -- Hide banner
+vim.g.netrw_keepdir = 0 -- Keep browser in sync with dir
+vim.g.netrw_list_hide = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+' -- hide dot files
 
 local opt = vim.opt
 
