@@ -3,7 +3,7 @@ return {
 	{ "folke/which-key.nvim", opts = {} },
 
     -- "gc" to comment visual regions/lines
-    { "numToStr/Comment.nvim", opts = {} },
+    -- { "numToStr/Comment.nvim", opts = {} },
     { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } },
 
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
@@ -37,5 +37,18 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
+        config = function ()
+            local mark = require("harpoon.mark")
+            local ui = require("harpoon.ui")
+            vim.keymap.set("n", "<leader>a", mark.add_file, { desc = "Harpoon mark file" })
+            vim.keymap.set("n", "<C-e>", ui.toggle_quick_menu, { desc = "Harpoon menu" })
+        end
+    },
+
+    {
+        "windwp/nvim-autopairs",
+        config = function ()
+            require("nvim-autopairs").setup({})
+        end
     },
 }
