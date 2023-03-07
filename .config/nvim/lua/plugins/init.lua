@@ -115,6 +115,17 @@ local plugins = {
         config = function () require("plugins.config.whichkey") end,
         event = "VeryLazy",
     },
+    {
+        "ThePrimeagen/harpoon",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function () require("plugins.config.harpoon") end,
+        event = "VeryLazy",
+    },
+    {
+        "windwp/nvim-autopairs",
+        config = function() require("plugins.config.autopairs") end,
+        event = "VeryLazy",
+    },
 }
 
 local opts = {
