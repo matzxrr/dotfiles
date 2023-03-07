@@ -3,7 +3,6 @@ vim.g.maplocalleader = " "
 
 vim.g.netrw_banner = 0 -- Hide banner
 vim.g.netrw_keepdir = 0 -- Keep browser in sync with dir
-vim.g.netrw_list_hide = '\\(^\\|\\s\\s\\)\\zs\\.\\S\\+' -- hide dot files
 
 local opt = vim.opt
 
@@ -12,7 +11,6 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
-
 opt.mouse = nil
 opt.autowrite = true -- Save on next
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
@@ -20,6 +18,7 @@ opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
 opt.cursorline = true -- Enabled highlight of the current line
+opt.colorcolumn = "80,120"
 
 -- wtf is this
 opt.formatoptions = "jcroqlnt" -- tcqj
@@ -46,6 +45,7 @@ opt.spellsuggest = "best,9"
 opt.splitbelow = true -- Put new windows below current
 opt.splitright = true --Put new windows right of current
 -- opt.termguicolors = true -- True color support
+opt.timeout = true
 opt.timeoutlen = 300
 opt.undofile = true
 opt.undolevels = 10000
@@ -60,9 +60,9 @@ opt.backup = false
 
 if vim.fn.has("nvim-0.9.0") == 1 then
 	opt.splitkeep = "screen"
+
 	opt.shortmess:append { C = true }
 end
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0
-
