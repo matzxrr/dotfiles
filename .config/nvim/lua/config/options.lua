@@ -1,67 +1,53 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.g.netrw_banner = 0 -- Hide banner
-vim.g.netrw_keepdir = 0 -- Keep browser in sync with dir
-
 local opt = vim.opt
 
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
-opt.expandtab = true
-opt.smartindent = true
-opt.mouse = nil
-opt.autowrite = true -- Save on next
+opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noselect" -- options for insert mode completion
 opt.conceallevel = 3 -- Hide * markup for bold and italic
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enabled highlight of the current line
-opt.colorcolumn = "80,120"
-
--- wtf is this
-opt.formatoptions = "jcroqlnt" -- tcqj
-
+opt.cursorline = true -- Enable highlighting of the current line
+opt.expandtab = true -- Use spaces instead of tabs
+opt.formatoptions = "jcroqlnt" -- tcqj https://neovim.io/doc/user/change.html#fo-table
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true -- ignore case
+opt.ignorecase = true -- Ignore case
 opt.inccommand = "nosplit" -- preview incremental substitute
-opt.laststatus = 0
-opt.list = false -- Hide invisible characters (tabs...
+opt.laststatus = 0 -- no ugly status on top of window
+opt.list = false -- Hide tab and space characters
+opt.mouse = nil -- disable mouse mode
 opt.number = true -- Print line number
-opt.relativenumber = true -- Show relative line numbers
 opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
+opt.relativenumber = true -- Relative line numbers
 opt.scrolloff = 8 -- Lines of context
 opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
-opt.shortmess:append { W = true, I = true, c = true }
+opt.shiftround = true -- Round indent
+opt.shiftwidth = 4 -- Size of an indent
+opt.shortmess:append({ W = true, I = true, c = true })
 opt.showmode = false -- Dont show mode since we have a statusline
 opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes" -- Always show the signcolum, otherwise it would shift the text each time
+opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 opt.smartcase = true -- Don't ignore case with capitals
-opt.spelllang = { "en", "cjk" }
-opt.spellsuggest = "best,9"
+opt.smartindent = true -- Insert indents automatically
+opt.spelllang = { "en" }
 opt.splitbelow = true -- Put new windows below current
-opt.splitright = true --Put new windows right of current
--- opt.termguicolors = true -- True color support
-opt.timeout = true
-opt.timeoutlen = 300
+opt.splitright = true -- Put new windows right of current
+opt.tabstop = 4 -- Number of spaces tabs count for
+opt.termguicolors = true -- True color support
+opt.timeoutlen = 1000
 opt.undofile = true
 opt.undolevels = 10000
 opt.updatetime = 200 -- Save swap file and trigger CursorHold
-opt.wildmode = "longest:full,full" -- Comand-Line completion mode
+opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5 -- Minimum window width
 opt.wrap = false -- Disable line wrap
-opt.hlsearch = false
-opt.incsearch = true
-opt.swapfile = false
-opt.backup = false
 
 if vim.fn.has("nvim-0.9.0") == 1 then
 	opt.splitkeep = "screen"
-
-	opt.shortmess:append { C = true }
+	opt.shortmess:append({ C = true })
 end
 
 -- Fix markdown indentation settings

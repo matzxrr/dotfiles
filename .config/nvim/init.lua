@@ -1,5 +1,6 @@
-require "utils"
-require "config.options"
-require "config.keymaps"
-require "plugins"
-
+-----------------------------------
+-- Mattdevio Nvim Config
+-----------------------------------
+require("util.notify").debounceNotifyDuringStartup()
+require("config").setup()
+require("plugins").setup()
