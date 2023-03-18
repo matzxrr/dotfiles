@@ -148,6 +148,11 @@ if [ -f "$RUSTUP" ]; then
 fi
 unset RUSTUP
 
+YSS="$HOME/.yss"
+if [ -f "$YSS" ]; then
+    source "$YSS"
+fi
+
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
