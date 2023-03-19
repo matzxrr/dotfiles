@@ -10,6 +10,7 @@ M.opts = {
 	servers = {
 		jsonls = {},
 		tsserver = {},
+        rust_analyzer = {},
 		lua_ls = {
 			settings = {
 				Lua = {
@@ -44,6 +45,11 @@ M.opts = {
 			require("typescript").setup({ server = opts })
 			return true
 		end,
+        rust_analyzer = function()
+            local rt = require("rust-tools")
+            rt.setup()
+            return true
+        end,
 	},
 }
 

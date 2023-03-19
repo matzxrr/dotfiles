@@ -16,19 +16,6 @@ function M.installLazy()
 	vim.opt.rtp:prepend(lazypath)
 end
 
----Load plugins
----@param conf string
----@return table
-function M.loadPlugin(conf)
-	local fullpath = "plugins." .. conf
-	local status_ok, plug = pcall(require, fullpath)
-	if not status_ok then
-		require("util.notify").error(plug, { title = "plugins" })
-		return {}
-	end
-	return plug
-end
-
 M.lazyPlugins = {
 	--------------------------------------------------------
 	-- LSP
@@ -40,6 +27,7 @@ M.lazyPlugins = {
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 			"folke/neodev.nvim",
             "jose-elias-alvarez/typescript.nvim",
+            "simrat39/rust-tools.nvim",
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
