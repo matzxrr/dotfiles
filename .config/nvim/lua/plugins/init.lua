@@ -151,6 +151,17 @@ M.lazyPlugins = {
 		end,
 		event = "VimEnter",
 	},
+    {
+        "mfussenegger/nvim-dap",
+        config = function()
+            require("plugins.spec.dap").setup()
+        end,
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+            "nvim-telescope/telescope-dap.nvim"
+        }
+    },
 	-------------------------------------------------------
 	-- SHARED
 	-------------------------------------------------------
