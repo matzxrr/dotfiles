@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-	vim.cmd([[colorscheme tokyonight]])
+    require("tokyonight").setup()
 end
 
 return M

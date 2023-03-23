@@ -4,7 +4,7 @@ function M.setup()
 	require("nvim-web-devicons").setup({
 		-- https://github.com/nvim-tree/nvim-web-devicons/blob/master/lua/nvim-web-devicons.lua
 		override = {},
-		color_icons = false,
+		color_icons = true,
 	})
 end
 

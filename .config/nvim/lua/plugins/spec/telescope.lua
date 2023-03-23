@@ -6,6 +6,11 @@ function M.setup()
 			prompt_prefix = " ",
 			selection_caret = " ",
 		},
+        pickers = {
+            colorscheme = {
+                enable_preview = true,
+            }
+        },
 	})
 	local builtin = require("telescope.builtin")
 	vim.keymap.set("n", "<leader>pf", builtin.find_files, { desc = "Find Files" })

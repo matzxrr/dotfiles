@@ -112,11 +112,17 @@ M.lazyPlugins = {
 	-------------------------------------------------------
 	{
 		"folke/tokyonight.nvim",
-		lazy = false,
 		config = function()
 			require("plugins.spec.tokyonight").setup()
 		end,
 	},
+    {
+        "catppuccin/nvim",
+        lazy = false,
+        config = function()
+            require("plugins.spec.catppuccin").setup()
+        end,
+    },
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
@@ -151,6 +157,17 @@ M.lazyPlugins = {
 		end,
 		event = "VimEnter",
 	},
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v2.x",
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+        },
+        lazy = false,
+        config = function()
+            require("plugins.spec.neo_tree").setup()
+        end,
+    },
 	-------------------------------------------------------
 	-- SHARED
 	-------------------------------------------------------
@@ -178,6 +195,7 @@ M.lazyConfig = {
 				"vimball",
 				"vimballPlugin",
 				"zip",
+                "netrwPlugin",
 				"zipPlugin",
 			},
 		},
@@ -188,7 +206,6 @@ M.lazyConfig = {
 function M.setup()
 	M.installLazy()
 	require("lazy").setup(M.lazyPlugins, M.lazyConfig)
-	vim.api.nvim_exec_autocmds("User", { pattern = "mattdevio_config" })
 end
 
 return M

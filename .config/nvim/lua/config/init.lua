@@ -13,13 +13,8 @@ end
 ---Setup config
 function M.setup()
 	M.load("options")
-	vim.api.nvim_create_autocmd("User", {
-		pattern = "mattdevio_config",
-		callback = function()
-			M.load("autocmds")
-			M.load("keymaps")
-		end,
-	})
+	M.load("autocmds")
+	M.load("keymaps")
 end
 
 return M
