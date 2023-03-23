@@ -46,8 +46,16 @@ M.opts = {
 			return true
 		end,
         rust_analyzer = function()
+            local base = vim.env.MASON .. "/packages/codelldb/extension/"
             local rt = require("rust-tools")
-            rt.setup()
+            rt.setup({
+                dap = {
+                    adapter = require("rust-tools.dap").get_codelldb_adapter(
+                        base .. "adapter/codelldb",
+                        base .. "lldb/lib/liblldb.so"
+                    ),
+                },
+            })
             return true
         end,
 	},

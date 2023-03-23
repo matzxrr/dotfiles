@@ -5,6 +5,7 @@ M.opts = {
 		"stylua",
 		"shfmt",
         "eslint_d",
+        "codelldb",
 	},
 }
 
