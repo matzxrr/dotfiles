@@ -56,6 +56,12 @@ M.opts = {
                     ),
                 },
             })
+            require("util.core").on_attach(function(client, buffer)
+                if client.name == "rust_analyzer" then
+                    vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = buffer })
+                    vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = buffer })
+                end
+            end)
             return true
         end,
 	},
