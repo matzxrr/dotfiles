@@ -2,13 +2,14 @@ local M = {}
 
 M.opts = {
 	history = true,
-	delete_check_events = "TextChanged",
+	region_check_events = "InsertEnter",
+	delete_check_events = "TextChanged,InsertLeave",
 }
 
 function M.setup()
 	require("luasnip.loaders.from_vscode").lazy_load()
 	local luasnip = require("luasnip")
-	luasnip.setup()
+	luasnip.setup(M.opts)
 	vim.keymap.set("i", "<tab>", function()
 		return luasnip.jumpable(1) and "<Plug>luasnip-jump-next" or "<tab>"
 	end, { expr = true, silent = true })
