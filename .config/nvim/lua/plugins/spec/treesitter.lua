@@ -18,8 +18,8 @@ local languages = {
 	"typescript",
 	"vim",
 	"yaml",
-    "typescript",
-    "tsx",
+	"typescript",
+	"tsx",
 }
 
 function M.setup()

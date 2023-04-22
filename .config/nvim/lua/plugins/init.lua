@@ -26,8 +26,8 @@ M.lazyPlugins = {
 		dependencies = {
 			{ "folke/neoconf.nvim", cmd = "Neoconf", config = true },
 			"folke/neodev.nvim",
-            "jose-elias-alvarez/typescript.nvim",
-            "simrat39/rust-tools.nvim",
+			"jose-elias-alvarez/typescript.nvim",
+			"simrat39/rust-tools.nvim",
 			"mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"hrsh7th/cmp-nvim-lsp",
@@ -116,13 +116,13 @@ M.lazyPlugins = {
 			require("plugins.spec.tokyonight").setup()
 		end,
 	},
-    {
-        "catppuccin/nvim",
-        lazy = false,
-        config = function()
-            require("plugins.spec.catppuccin").setup()
-        end,
-    },
+	{
+		"catppuccin/nvim",
+		lazy = false,
+		config = function()
+			require("plugins.spec.catppuccin").setup()
+		end,
+	},
 	{
 		"echasnovski/mini.pairs",
 		event = "VeryLazy",
@@ -157,28 +157,28 @@ M.lazyPlugins = {
 		end,
 		event = "VimEnter",
 	},
-    {
-        "nvim-neo-tree/neo-tree.nvim",
-        branch = "v2.x",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-        lazy = false,
-        config = function()
-            require("plugins.spec.neo_tree").setup()
-        end,
-    },
-    {
-        "mfussenegger/nvim-dap",
-        config = function()
-            require("plugins.spec.dap").setup()
-        end,
-        dependencies = {
-            "rcarriga/nvim-dap-ui",
-            "theHamsta/nvim-dap-virtual-text",
-            "nvim-telescope/telescope-dap.nvim"
-        }
-    },
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v2.x",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		lazy = false,
+		config = function()
+			require("plugins.spec.neo_tree").setup()
+		end,
+	},
+	{
+		"mfussenegger/nvim-dap",
+		config = function()
+			require("plugins.spec.dap").setup()
+		end,
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text",
+			"nvim-telescope/telescope-dap.nvim",
+		},
+	},
 	-------------------------------------------------------
 	-- SHARED
 	-------------------------------------------------------
@@ -206,7 +206,7 @@ M.lazyConfig = {
 				"vimball",
 				"vimballPlugin",
 				"zip",
-                "netrwPlugin",
+				"netrwPlugin",
 				"zipPlugin",
 			},
 		},
