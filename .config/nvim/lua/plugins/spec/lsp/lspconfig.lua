@@ -8,7 +8,13 @@ M.opts = {
 		severity_sort = true,
 	},
 	servers = {
-		jsonls = {},
+		jsonls = {
+            settings = {
+                json = {
+                    schemas = require("plugins.spec.lsp.jsonls_schema"),
+                },
+            },
+        },
 		tsserver = {},
         rust_analyzer = {},
 		lua_ls = {
