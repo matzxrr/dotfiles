@@ -4,8 +4,8 @@ M.opts = {
 	ensure_installed = {
 		"stylua",
 		"shfmt",
-        "eslint_d",
-        "codelldb",
+		"eslint_d",
+		"codelldb",
 	},
 }
 

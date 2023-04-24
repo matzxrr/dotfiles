@@ -19,15 +19,12 @@ function M.prettyIcons()
 		"DapLogPoint",
 		{ text = icons.kinds.String, texthl = "debugBreakpoint", linehl = "", numhl = "debugBreakpoint" }
 	)
-	fn.sign_define(
-		"DapStopped",
-		{
-			text = icons.kinds.BoldArrowRight,
-			texthl = "debugBreakpoint",
-			linehl = "debugPC",
-			numhl = "DiagnosticSignError",
-		}
-	)
+	fn.sign_define("DapStopped", {
+		text = icons.kinds.BoldArrowRight,
+		texthl = "debugBreakpoint",
+		linehl = "debugPC",
+		numhl = "DiagnosticSignError",
+	})
 end
 
 function M.setup()

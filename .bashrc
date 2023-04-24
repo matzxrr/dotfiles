@@ -9,8 +9,6 @@ if [[ -n "$ZSH_VERSION" ]]; then
     return 1 2> /dev/null || exit 1;
 fi;
 
-export TERM='xterm-256color'
-
 # Setup Glyphs
 USER_ICON=''
 PENGUIN_ICON=''

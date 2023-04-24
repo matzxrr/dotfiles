@@ -16,7 +16,7 @@ M.opts = {
             },
         },
 		tsserver = {},
-        rust_analyzer = {},
+		rust_analyzer = {},
 		lua_ls = {
 			settings = {
 				Lua = {
@@ -51,25 +51,25 @@ M.opts = {
 			require("typescript").setup({ server = opts })
 			return true
 		end,
-        rust_analyzer = function()
-            local base = vim.env.MASON .. "/packages/codelldb/extension/"
-            local rt = require("rust-tools")
-            rt.setup({
-                dap = {
-                    adapter = require("rust-tools.dap").get_codelldb_adapter(
-                        base .. "adapter/codelldb",
-                        base .. "lldb/lib/liblldb.so"
-                    ),
-                },
-            })
-            require("util.core").on_attach(function(client, buffer)
-                if client.name == "rust_analyzer" then
-                    vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = buffer })
-                    vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = buffer })
-                end
-            end)
-            return true
-        end,
+		rust_analyzer = function()
+			local base = vim.env.MASON .. "/packages/codelldb/extension/"
+			local rt = require("rust-tools")
+			rt.setup({
+				dap = {
+					adapter = require("rust-tools.dap").get_codelldb_adapter(
+						base .. "adapter/codelldb",
+						base .. "lldb/lib/liblldb.so"
+					),
+				},
+			})
+			require("util.core").on_attach(function(client, buffer)
+				if client.name == "rust_analyzer" then
+					vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = buffer })
+					vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = buffer })
+				end
+			end)
+			return true
+		end,
 	},
 }
 

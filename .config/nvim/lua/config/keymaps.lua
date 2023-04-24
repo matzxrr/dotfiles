@@ -33,4 +33,3 @@ map("n", "<leader>-", function()
 	local h = vim.api.nvim_win_get_height(0)
 	vim.api.nvim_win_set_width(0, h + 5)
 end, { desc = "Horizontal -2" })
-

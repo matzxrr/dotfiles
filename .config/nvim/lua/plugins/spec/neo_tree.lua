@@ -4,14 +4,14 @@ function M.setup()
 	vim.g.neo_tree_remove_legacy_commands = 1
 
 	require("neo-tree").setup({
-        close_if_last_window = true,
+		close_if_last_window = true,
 		filesystem = {
 			bind_to_cwd = false,
 			follow_current_file = true,
-            filtered_items = {
-                hide_dotfiles = false,
-                hide_gitignored = false,
-            },
+			filtered_items = {
+				hide_dotfiles = false,
+				hide_gitignored = false,
+			},
 		},
 		window = {
 			mappings = {
@@ -28,9 +28,9 @@ function M.setup()
 		},
 	})
 
-    vim.keymap.set("n", "<leader>fe", function ()
-        require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() });
-    end)
+	vim.keymap.set("n", "<leader>fe", function()
+		require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+	end)
 end
 
 return M
