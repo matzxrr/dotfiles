@@ -131,6 +131,13 @@ M.lazyPlugins = {
 		end,
 	},
 	{
+		"echasnovski/mini.comment",
+		event = "BufEnter",
+		config = function()
+			require("plugins.spec.comment").setup()
+		end,
+	},
+	{
 		"rcarriga/nvim-notify",
 		event = "VeryLazy",
 		config = function()
