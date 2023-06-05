@@ -3,7 +3,7 @@ local M = {}
 local languages = {
 	"bash",
 	"c",
-	"help",
+    "rust",
 	"html",
 	"javascript",
 	"json",
