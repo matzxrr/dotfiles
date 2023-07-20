@@ -129,7 +129,11 @@ set_prompts() {
 
 }
 
+# ----------------------------------------------------------------------
+# | Path Updates                                                       |
+# ----------------------------------------------------------------------
 PATH=/opt/diff-so-fancy:$PATH
+PATH=/home/mgreenberg/.local/share/bob/nvim-bin:$PATH
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export HOMEBREW_BUNDLE_FILE=~/.config/.brewfile
@@ -148,11 +152,7 @@ if [ -f "$RUSTUP" ]; then
 fi
 unset RUSTUP
 
-YSS="$HOME/.yss"
-if [ -f "$YSS" ]; then
-    source "$YSS"
-fi
-
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+. "$HOME/.cargo/env"
