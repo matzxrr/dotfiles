@@ -53,6 +53,7 @@ M.lazyPlugins = {
 	},
 	{
 		"j-hui/fidget.nvim",
+        tag = "legacy",
 		config = function()
 			require("plugins.spec.lsp.fidget").setup()
 		end,

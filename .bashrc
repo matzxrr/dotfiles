@@ -129,6 +129,8 @@ set_prompts() {
 
 }
 
+PATH=/opt/diff-so-fancy:$PATH
+
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export HOMEBREW_BUNDLE_FILE=~/.config/.brewfile
 export EDITOR=nvim
