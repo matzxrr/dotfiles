@@ -14,7 +14,7 @@ USER_ICON=''
 PENGUIN_ICON=''
 APPLE_ICON=''
 FOLDER_ICON=''
-SERVER_ICON='歷'
+SERVER_ICON='󰒋'
 GIT_ICON=''
 MULTI_FIRST='╭─'
 MULTI_LAST='╰'
@@ -77,8 +77,8 @@ set_prompts() {
 
         userhost="${silver}$MULTI_FIRST"
         userhost+="${yellow} $MACHINE $USER "
-        # userhost+="${teal}at "
-        # userhost+="${purple}$SERVER_ICON$HOSTNAME "
+        userhost+="${teal}at "
+        userhost+="${purple}$SERVER_ICON $HOSTNAME"
         userhost+="${teal}in"
 
         if [ $USER != "$default_username" ]; then echo $userhost ""; fi
