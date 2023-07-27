@@ -152,6 +152,12 @@ if [ -f "$RUSTUP" ]; then
 fi
 unset RUSTUP
 
+IE="$HOME/.ie"
+if [ -f "$IE" ]; then
+    source "$IE"
+fi
+unset IE
+
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
