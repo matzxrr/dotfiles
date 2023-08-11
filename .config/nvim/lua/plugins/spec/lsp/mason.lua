@@ -6,6 +6,7 @@ M.opts = {
 		"shfmt",
 		"eslint_d",
 		"codelldb",
+        "prettier",
 	},
 }
 

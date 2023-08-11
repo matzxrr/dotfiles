@@ -154,7 +154,7 @@ unset RUSTUP
 
 IE="$HOME/.ie"
 if [ -f "$IE" ]; then
-    source "$IE"
+    . "$IE"
 fi
 unset IE
 

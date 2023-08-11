@@ -10,7 +10,7 @@ function M.setup()
 			nls.builtins.formatting.shfmt,
 			nls.builtins.code_actions.eslint_d,
 			nls.builtins.diagnostics.eslint_d,
-			nls.builtins.formatting.eslint_d,
+            nls.builtins.formatting.eslint_d,
 		},
 	}
 	nls.setup(opts)
