@@ -53,7 +53,7 @@ M.lazyPlugins = {
 	},
 	{
 		"j-hui/fidget.nvim",
-        tag = "legacy",
+		tag = "legacy",
 		config = function()
 			require("plugins.spec.lsp.fidget").setup()
 		end,
@@ -186,6 +186,14 @@ M.lazyPlugins = {
 			"theHamsta/nvim-dap-virtual-text",
 			"nvim-telescope/telescope-dap.nvim",
 		},
+	},
+	{
+		"kylechui/nvim-surround",
+		version = "*",
+		event = "VeryLazy",
+		config = function()
+			require("plugins.spec.surround").setup()
+		end,
 	},
 	-------------------------------------------------------
 	-- SHARED

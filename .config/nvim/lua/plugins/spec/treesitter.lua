@@ -20,6 +20,9 @@ local languages = {
 	"yaml",
 	"typescript",
 	"tsx",
+    "ninja",
+    "rst",
+    "toml",
 }
 
 function M.setup()

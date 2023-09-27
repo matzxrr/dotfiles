@@ -29,6 +29,8 @@ M.opts = {
 				},
 			},
 		},
+        pyright = {},
+        ruff_lsp = {},
 	},
 	setup = {
 		tsserver = function(_, opts)
@@ -70,6 +72,13 @@ M.opts = {
 			end)
 			return true
 		end,
+        ruff_lsp = function ()
+            require("util.core").on_attach(function (client, _)
+                if client.name == "ruff_lsp" then
+                    client.server_capabilities.hoverProvider = false
+                end
+            end)
+        end
 	},
 }
 

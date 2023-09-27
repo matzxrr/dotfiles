@@ -11,6 +11,7 @@ function M.setup()
 			nls.builtins.code_actions.eslint_d,
 			nls.builtins.diagnostics.eslint_d,
             nls.builtins.formatting.eslint_d,
+            nls.builtins.formatting.prettier,
 		},
 	}
 	nls.setup(opts)

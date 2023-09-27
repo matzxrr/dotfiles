@@ -24,6 +24,7 @@ function M.format()
 			end
 			return client.name ~= "null-ls"
 		end,
+        timeout = 4000,
 	})
 end
 
