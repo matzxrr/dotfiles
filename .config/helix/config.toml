@@ -7,6 +7,18 @@ scrolloff = 8
 cursorline = true
 true-color = true
 
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-name"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = "│"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.indent-guides]
+render = true
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -16,3 +28,9 @@ hidden = false
 
 [keys.insert]
 C-c = "normal_mode"
+
+[keys.normal]
+C-d = ["half_page_down", "align_view_center"]
+C-u = ["half_page_up", "align_view_center"]
+C-c = "no_op"
+g = { c = "toggle_comments" }
