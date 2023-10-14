@@ -5,7 +5,7 @@ function M.prettyIcons()
 	local fn = vim.fn
 	fn.sign_define(
 		"DapBreakpoint",
-		{ text = icons.kinds.Bug, texthl = "debugBreakpoint", linehl = "", numhl = "debugBreakpoint" }
+		{ text = icons.kinds.Bug, texthl = "DiagnosticError", linehl = "", numhl = "debugBreakpoint" }
 	)
 	fn.sign_define(
 		"DapBreakpointCondition",

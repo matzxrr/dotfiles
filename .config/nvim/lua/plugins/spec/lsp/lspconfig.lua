@@ -9,12 +9,12 @@ M.opts = {
 	},
 	servers = {
 		jsonls = {
-            settings = {
-                json = {
-                    schemas = require("plugins.spec.lsp.jsonls_schema"),
-                },
-            },
-        },
+			settings = {
+				json = {
+					schemas = require("plugins.spec.lsp.jsonls_schema"),
+				},
+			},
+		},
 		tsserver = {},
 		rust_analyzer = {},
 		lua_ls = {
@@ -29,8 +29,8 @@ M.opts = {
 				},
 			},
 		},
-        pyright = {},
-        ruff_lsp = {},
+		pyright = {},
+		ruff_lsp = {},
 	},
 	setup = {
 		tsserver = function(_, opts)
@@ -63,22 +63,35 @@ M.opts = {
 						base .. "lldb/lib/liblldb.so"
 					),
 				},
+				tools = {
+					hover_actions = {
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+						{ "", "FloatBorder" },
+					},
+				},
 			})
 			require("util.core").on_attach(function(client, buffer)
 				if client.name == "rust_analyzer" then
 					vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = buffer })
 					vim.keymap.set("n", "<leader>ca", rt.code_action_group.code_action_group, { buffer = buffer })
+					vim.keymap.set("n", "<leader>dr", rt.debuggables.debuggables, { buffer = buffer })
 				end
 			end)
 			return true
 		end,
-        ruff_lsp = function ()
-            require("util.core").on_attach(function (client, _)
-                if client.name == "ruff_lsp" then
-                    client.server_capabilities.hoverProvider = false
-                end
-            end)
-        end
+		ruff_lsp = function()
+			require("util.core").on_attach(function(client, _)
+				if client.name == "ruff_lsp" then
+					client.server_capabilities.hoverProvider = false
+				end
+			end)
+		end,
 	},
 }
 
