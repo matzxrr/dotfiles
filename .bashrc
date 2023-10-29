@@ -140,7 +140,7 @@ export BASH_SILENCE_DEPRECATION_WARNING=1
 export HOMEBREW_BUNDLE_FILE=~/.config/.brewfile
 export EDITOR=nvim
 
-export HELIX_RUNTIME=/home/$USER/helix/runtime
+export HELIX_RUNTIME="$HOME/helix/runtime"
 
 set_prompts
 unset set_prompts
