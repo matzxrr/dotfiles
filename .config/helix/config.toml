@@ -1,11 +1,18 @@
-theme = "tokyonight"
+theme = "catppuccin_mocha"
 
 [editor]
 line-number = "relative"
 mouse = false
 scrolloff = 8
+undercurl = true
 cursorline = true
 true-color = true
+color-modes = true
+rulers = [80]
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
 
 [editor.statusline]
 left = ["mode", "spinner"]
@@ -16,8 +23,12 @@ mode.normal = "NORMAL"
 mode.insert = "INSERT"
 mode.select = "SELECT"
 
+[editor.gutters]
+layout = ["diff", "diagnostics", "line-numbers", "spacer", "spacer"]
+
 [editor.indent-guides]
 render = true
+character = "▏"
 
 [editor.cursor-shape]
 insert = "bar"
@@ -25,12 +36,3 @@ normal = "block"
 
 [editor.file-picker]
 hidden = false
-
-[keys.insert]
-C-c = "normal_mode"
-
-[keys.normal]
-C-d = ["half_page_down", "align_view_center"]
-C-u = ["half_page_up", "align_view_center"]
-C-c = "no_op"
-g = { c = "toggle_comments" }

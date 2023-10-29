@@ -1,5 +1,142 @@
+# RUST ------------------------------------------------------------------------
 [[language]]
 name = "rust"
+# -----------------------------------------------------------------------------
 
-[language-server.rust-analyzer.config.check]
-command = "clippy"
+# TOML ------------------------------------------------------------------------
+[[language]]
+name = "toml"
+formatter = { command = "taplo", args = ["fmt", "-"] }
+# -----------------------------------------------------------------------------
+
+# PYTHON ----------------------------------------------------------------------
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+# -----------------------------------------------------------------------------
+
+# TYPESCRIPT ------------------------------------------------------------------
+[[language]]
+name = "typescript"
+language-servers = [
+  "typescript-language-server",
+  "eslint",
+  "emmet-ls",
+  "snippets-ls",
+]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "tsx"
+language-servers = [
+  "typescript-language-server",
+  "eslint",
+  "emmet-ls",
+  "snippets-ls",
+]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# -----------------------------------------------------------------------------
+
+# JAVASCRIPT ------------------------------------------------------------------
+[[language]]
+name = "javascript"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "jsx"
+language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+grammar = "javascript"
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# -----------------------------------------------------------------------------
+
+# JSON ------------------------------------------------------------------------
+[[language]]
+name = "json"
+language-servers = ["vscode-json-language-server"]
+formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
+# -----------------------------------------------------------------------------
+
+# CSS -------------------------------------------------------------------------
+[[language]]
+name = "css"
+formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+language-servers = ["vscode-css-language-server", "emmet-ls"]
+# -----------------------------------------------------------------------------
+
+###############################################################################
+############################# LSP CONFIGS #####################################
+###############################################################################
+
+# Rust Analyzer ---------------------------------------------------------------
+[language-server.rust-analyzer.config]
+check = { command = "clippy", features = "all" }
+diagnostics = { experimental = { enable = true } }
+hover = { actions = { enable = true } }
+typing = { autoClosingAngleBrackets = { enable = true } }
+cargo = { allFeatures = true }
+procMacro = { enable = true }
+
+# VSCode CSS ------------------------------------------------------------------
+[language-server.vscode-css-language-server.config]
+css = { validate = { enable = true } }
+scss = { validate = { enable = true } }
+less = { validate = { enable = true } }
+provideFormatter = true
+
+# VSCode JSON -----------------------------------------------------------------
+[language-server.vscode-json-language-server.config]
+json = { validate = { enable = true }, format = { enable = true } }
+provideFormatter = true
+
+# Emmet HTML Completion -------------------------------------------------------
+[language-server.emmet-ls]
+args = ["--stdio"]
+command = "emmet-language-server"
+
+# ESLint ----------------------------------------------------------------------
+[language-server.eslint]
+args = ["--stdio"]
+command = "vscode-eslint-language-server"
+
+[language-server.eslint.config]
+format = true
+nodePath = ""
+onIgnoredFiles = "off"
+packageManager = "yarn"
+quiet = false
+rulesCustomizations = []
+run = "onType"
+useESLintClass = false
+validate = "on"
+codeAction = { disableRuleComment = { enable = true, location = "separateLine" }, showDocumentation = { enable = true } }
+codeActionOnSave = { mode = "all" }
+experimental = {}
+problems = { shortenToSingleLine = false }
+workingDirectory = { mode = "auto" }
+
+# Typescript ------------------------------------------------------------------
+[language-server.typescript-language-server.config]
+documentFormatting = false
+hostInfo = "helix"
+
+[language-server.typescript-language-server.config.typescript.inlayHints]
+includeInlayEnumMemberValueHints = true
+includeInlayFunctionLikeReturnTypeHints = true
+includeInlayFunctionParameterTypeHints = true
+includeInlayParameterNameHints = "all"
+includeInlayParameterNameHintsWhenArgumentMatchesName = true
+includeInlayPropertyDeclarationTypeHints = true
+includeInlayVariableTypeHints = true
+
+[language-server.typescript-language-server.config.completions]
+completeFunctionCalls = true
+
+[language-server.typescript-language-server.config.javascript.inlayHints]
+includeInlayEnumMemberValueHints = true
+includeInlayFunctionLikeReturnTypeHints = true
+includeInlayFunctionParameterTypeHints = true
+includeInlayParameterNameHints = "all"
+includeInlayParameterNameHintsWhenArgumentMatchesName = true
+includeInlayPropertyDeclarationTypeHints = true
+includeInlayVariableTypeHints = true
