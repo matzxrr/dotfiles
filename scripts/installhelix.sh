@@ -5,11 +5,12 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # ----------------------------------------------------------------
-
+HERE=$(pwd)
 VERSION="32.10"
 
 echo "Installing Helix v$VERSION..."
 
+cd ~
 git clone https://github.com/helix-editor/helix
 cd helix
 git checkout 23.10
@@ -29,8 +30,10 @@ npm install -g typescript typescript-language-server
 npm i -g bash-language-server
 
 # Python
-npm install --location=global
+npm install -g pyright
 
 # Linters and Stuff
 npm install -g @kozer/emmet-language-server
 npm i -g vscode-langservers-extracted # html, css, json, eslint
+
+cd "$HERE"
