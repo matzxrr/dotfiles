@@ -121,22 +121,22 @@ documentFormatting = false
 hostInfo = "helix"
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
-includeInlayEnumMemberValueHints = true
-includeInlayFunctionLikeReturnTypeHints = true
-includeInlayFunctionParameterTypeHints = true
-includeInlayParameterNameHints = "all"
-includeInlayParameterNameHintsWhenArgumentMatchesName = true
-includeInlayPropertyDeclarationTypeHints = true
-includeInlayVariableTypeHints = true
+includeInlayEnumMemberValueHints = false
+includeInlayFunctionLikeReturnTypeHints = false
+includeInlayFunctionParameterTypeHints = false
+includeInlayParameterNameHints = "none"
+includeInlayParameterNameHintsWhenArgumentMatchesName = false
+includeInlayPropertyDeclarationTypeHints = false
+includeInlayVariableTypeHints = false
 
 [language-server.typescript-language-server.config.completions]
-completeFunctionCalls = true
+completeFunctionCalls = false
 
 [language-server.typescript-language-server.config.javascript.inlayHints]
-includeInlayEnumMemberValueHints = true
-includeInlayFunctionLikeReturnTypeHints = true
-includeInlayFunctionParameterTypeHints = true
-includeInlayParameterNameHints = "all"
-includeInlayParameterNameHintsWhenArgumentMatchesName = true
-includeInlayPropertyDeclarationTypeHints = true
-includeInlayVariableTypeHints = true
+includeInlayEnumMemberValueHints = false
+includeInlayFunctionLikeReturnTypeHints = false
+includeInlayFunctionParameterTypeHints = false
+includeInlayParameterNameHints = "none"
+includeInlayParameterNameHintsWhenArgumentMatchesName = false
+includeInlayPropertyDeclarationTypeHints = false
+includeInlayVariableTypeHints = false
