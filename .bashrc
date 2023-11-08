@@ -139,7 +139,7 @@ export PATH="$PATH:/usr/local/go/bin"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export HOMEBREW_BUNDLE_FILE=~/.config/.brewfile
-export EDITOR=nvim
+export EDITOR=hx
 
 export HELIX_RUNTIME="$HOME/helix/runtime"
 
