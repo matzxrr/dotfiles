@@ -70,6 +70,7 @@ language-servers = ["vscode-css-language-server", "emmet-ls"]
 
 # Rust Analyzer ---------------------------------------------------------------
 [language-server.rust-analyzer.config]
+inlayHints = { parameterHints = { enable = false } }
 check = { command = "clippy", features = "all" }
 diagnostics = { experimental = { enable = true } }
 hover = { actions = { enable = true } }
