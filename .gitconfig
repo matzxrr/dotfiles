@@ -1,11 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
-    name = mattdevio
-    email = magreenberg@fullsail.edu
+    name = matzxrr
+    email = matzxrr@users.noreply.github.com
 [init]
     defaultBranch = master
 [core]
-    editor = nvim
+    editor = hx
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
     pager = diff-so-fancy | less --tabs=4 -RFX
 [web]
