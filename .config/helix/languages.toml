@@ -53,7 +53,7 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 # JSON ------------------------------------------------------------------------
 [[language]]
 name = "json"
-language-servers = ["vscode-json-language-server"]
+language-servers = ["jsonls"]
 formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
 # -----------------------------------------------------------------------------
 
@@ -86,9 +86,17 @@ less = { validate = { enable = true } }
 provideFormatter = true
 
 # VSCode JSON -----------------------------------------------------------------
-[language-server.vscode-json-language-server.config]
+[language-server.jsonls]
+args = ["--stdio"]
+command = "vscode-json-language-server"
+
+[language-server.jsonls.config]
 json = { validate = { enable = true }, format = { enable = true } }
 provideFormatter = true
+
+[[language-server.jsonls.json.schemas]]
+fileMatch = ["tsconfig.json", "tsconfig.*.json"]
+url = "https://json.schemastore.org/tsconfig.json"
 
 # Emmet HTML Completion -------------------------------------------------------
 [language-server.emmet-ls]
@@ -120,6 +128,9 @@ workingDirectory = { mode = "auto" }
 [language-server.typescript-language-server.config]
 documentFormatting = false
 hostInfo = "helix"
+
+[language-server.typescript-language-server.config.preferences]
+quotePreference = 'single'
 
 [language-server.typescript-language-server.config.typescript.inlayHints]
 includeInlayEnumMemberValueHints = false
