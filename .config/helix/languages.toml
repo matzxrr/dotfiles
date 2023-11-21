@@ -21,7 +21,6 @@ name = "typescript"
 language-servers = [
   "typescript-language-server",
   "eslint",
-  "emmet-ls",
   "snippets-ls",
 ]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
@@ -40,7 +39,7 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 # JAVASCRIPT ------------------------------------------------------------------
 [[language]]
 name = "javascript"
-language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+language-servers = ["typescript-language-server", "eslint"]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
