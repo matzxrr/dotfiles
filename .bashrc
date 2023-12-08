@@ -1,8 +1,8 @@
 ##############################################
-# Matt Greenberg Bash
+# matzxrr bash
 # ############################################
 
-default_username='mattdevio'
+default_username='matzxrr'
 
 # Not a ZSH script
 if [[ -n "$ZSH_VERSION" ]]; then
