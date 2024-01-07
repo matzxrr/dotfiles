@@ -90,10 +90,13 @@ args = ["--stdio"]
 command = "vscode-json-language-server"
 
 [language-server.jsonls.config]
-json = { validate = { enable = true }, format = { enable = true } }
 provideFormatter = true
 
-[[language-server.jsonls.json.schemas]]
+[language-server.jsonls.config.json]
+validate = { enable = true }
+format = { enable = true }
+
+[[language-server.jsonls.config.json.schemas]]
 fileMatch = ["tsconfig.json", "tsconfig.*.json"]
 url = "https://json.schemastore.org/tsconfig.json"
 
