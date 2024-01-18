@@ -81,7 +81,14 @@ set_prompts() {
         userhost+="${purple}$SERVER_ICON $HOSTNAME "
         userhost+="${teal}in"
 
-        if [ $USER != "$default_username" ]; then echo $userhost ""; fi
+        homeuser="${silver}$MULTI_FIRST"
+        homeuser+="${yellow} $MACHINE $default_username "
+
+        if [ $USER != "$default_username" ]; then
+            echo $userhost "";
+        else 
+            echo $homeuser "";
+        fi
     }
 
     function prompt_git() {
