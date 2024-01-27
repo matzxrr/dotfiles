@@ -1,16 +1,14 @@
-# mattdevio dotfiles
+# matzxrr dotfiles
 
 A collection of my dev env config files.
 
-Simple stuff... [dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
+Basic Idea / Structure... [how to dotfiles](https://www.atlassian.com/git/tutorials/dotfiles)
 
 
-## Windows WSL (ubuntu 20.02)
+## Dotme - Dotfile Manager
 
-```sh
-# packer packages don't install right (sumneko_lua)
-sudo apt-get install unzip
-# tellescope needs it (live_grep)
-sudo apt-get install ripgrep
-```
+[dotme](https://github.com/matzxrr/dotme)
+
+This is a project of mine that allows you to manage your dotfiles
+with a bare repository. Its a WIP.
 
