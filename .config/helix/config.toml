@@ -50,3 +50,6 @@ up = "no_op"
 down = "no_op"
 left = "no_op"
 right = "no_op"
+
+[keys.normal."space"]
+"c" = ":buffer-close"
