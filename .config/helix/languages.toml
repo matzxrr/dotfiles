@@ -63,9 +63,26 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
 language-servers = ["vscode-css-language-server", "emmet-ls"]
 # -----------------------------------------------------------------------------
 
+# YAML ------------------------------------------------------------------------
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yml", "yaml"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = [ "yaml-language-server"]
+injection-regex = "yml|yaml"
+formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
+# -----------------------------------------------------------------------------
+
 ###############################################################################
 ############################# LSP CONFIGS #####################################
 ###############################################################################
+
+# Yaml ------------------------------------------------------------------------
+[language-server.yaml-language-server.config.yaml]
+format = { enable = false }
+validation = true
 
 # Rust Analyzer ---------------------------------------------------------------
 [language-server.rust-analyzer.config]
