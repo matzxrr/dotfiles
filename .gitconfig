@@ -1,7 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
     name = matzxrr
-    email = matzxrr@users.noreply.github.com
+    email = matzxrr@gmail.com
+    signingkey = ADCBF69BA216B7CA
 [init]
     defaultBranch = master
 [core]
@@ -27,3 +28,5 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+[commit]
+    gpgsign = true
