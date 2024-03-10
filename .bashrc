@@ -150,6 +150,8 @@ export EDITOR=hx
 
 export HELIX_RUNTIME="$HOME/helix/runtime"
 
+export GPG_TTY=$(tty) # Fix gpg signing
+
 set_prompts
 unset set_prompts
 
