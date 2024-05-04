@@ -18,11 +18,7 @@ language-servers = ["pyright"]
 # TYPESCRIPT ------------------------------------------------------------------
 [[language]]
 name = "typescript"
-language-servers = [
-  "typescript-language-server",
-  "eslint",
-  "snippets-ls",
-]
+language-servers = ["typescript-language-server", "eslint", "snippets-ls"]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
@@ -70,10 +66,23 @@ scope = "source.yaml"
 file-types = ["yml", "yaml"]
 comment-token = "#"
 indent = { tab-width = 2, unit = "  " }
-language-servers = [ "yaml-language-server"]
+language-servers = ["yaml-language-server"]
 injection-regex = "yml|yaml"
 formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
 # -----------------------------------------------------------------------------
+
+# Make ------------------------------------------------------------------------
+[[language]]
+name = "make"
+scope = "source.make"
+file-types = ["Makefile", "makefile", "make", "mk", "mak", "GNUmakefile", "OCamlMakefile"]
+shebangs = ["make", "gmake"]
+injection-regex = "(make|makefile|Makefile|mk)"
+roots = []
+comment-token = "#"
+indent = { tab-width = 4, unit = "t" }
+# -----------------------------------------------------------------------------
+
 
 ###############################################################################
 ############################# LSP CONFIGS #####################################
