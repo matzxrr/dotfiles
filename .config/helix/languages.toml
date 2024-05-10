@@ -1,3 +1,5 @@
+use-grammars = { except = [ "hare", "wren", "gemini" ] }
+
 # RUST ------------------------------------------------------------------------
 [[language]]
 name = "rust"
