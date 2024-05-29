@@ -42,6 +42,9 @@ echo "Make sure HELIX_RUNTIME variable is set to the runtime"
 
 echo "Install LSPs..."
 
+# Rust Analyzer
+rustup component add rust-analyzer
+
 # Taplo, for TOML Files
 cargo install taplo-cli --locked --features lsp
 
