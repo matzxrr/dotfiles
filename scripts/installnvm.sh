@@ -8,11 +8,6 @@ pretty_print() {
 
 pretty_print "Installing nvm..."
 
-if [[ "$system_type" != "Darwin" ]]; then
-    pretty_print "Not MacOS, skiping..."
-    return 0;
-fi
-
 if [ ! -d "${HOME}/.nvm/.git" ]; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
     source ~/.bash_profile

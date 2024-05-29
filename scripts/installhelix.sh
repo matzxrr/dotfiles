@@ -4,16 +4,38 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-# ----------------------------------------------------------------
+# -----------------------------------------------------------------------------
+if ! command -v git &> /dev/null; then
+  echo "GIT Missing"
+  exit 1
+fi
+
+if ! command -v cargo &> /dev/null; then
+  echo "Rust Missing"
+  exit 1
+fi
+
+if ! command -v npm &> /dev/null; then
+  echo "Node Missing"
+  exit 1
+fi
+# -----------------------------------------------------------------------------
+
 HERE=$(pwd)
-VERSION="32.10"
+VERSION="24.03"
+INSTALL_DIR="$HOME/helix"
 
-echo "Installing Helix v$VERSION..."
+echo "Installing Helix v$VERSION in '$INSTALL_DIR'..."
 
-cd ~
-git clone https://github.com/helix-editor/helix
-cd helix
-git checkout 23.10
+if [ -d "$INSTALL_DIR" ]; then
+  cd $INSTALL_DIR
+  git checkout master
+  git pull
+else
+  git clone https://github.com/helix-editor/helix $INSTALL_DIR
+  cd $INSTALL_DIR
+fi
+git checkout $VERSION
 cargo install --path helix-term --locked
 
 echo "Make sure HELIX_RUNTIME variable is set to the runtime"
