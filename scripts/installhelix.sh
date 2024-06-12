@@ -58,4 +58,7 @@ npm install -g pyright
 npm install -g @kozer/emmet-language-server
 npm i -g vscode-langservers-extracted # html, css, json, eslint
 
+# YAML
+npm i -g yaml-language-server@next
+
 cd "$HERE"
