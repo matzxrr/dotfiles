@@ -59,7 +59,7 @@ npm install -g pyright
 
 # Linters and Stuff
 npm install -g @kozer/emmet-language-server
-npm i -g vscode-langservers-extracted # html, css, json, eslint
+npm i -g vscode-langservers-extracted@v4.8.0 # html, css, json, eslint
 
 # YAML
 npm i -g yaml-language-server@next
