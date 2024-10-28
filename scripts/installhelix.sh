@@ -21,7 +21,6 @@ if ! command -v npm &> /dev/null; then
 fi
 # -----------------------------------------------------------------------------
 
-HERE=$(pwd)
 VERSION="24.07"
 INSTALL_DIR="$HOME/helix"
 
@@ -64,4 +63,6 @@ npm i -g vscode-langservers-extracted@v4.8.0 # html, css, json, eslint
 # YAML
 npm i -g yaml-language-server@next
 
-cd "$HERE"
+# Clangd for C/C++
+sudo apt-get update
+sudo apt-get install clangd -y
