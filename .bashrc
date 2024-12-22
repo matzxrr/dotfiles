@@ -9,6 +9,13 @@ if [[ -n "$ZSH_VERSION" ]]; then
     return 1 2> /dev/null || exit 1;
 fi;
 
+# Load Work cmds
+IE="$HOME/.ie"
+if [ -f "$IE" ]; then
+    . "$IE"
+fi
+unset IE
+
 # Setup Glyphs
 USER_ICON=''
 PENGUIN_ICON=''
@@ -123,6 +130,9 @@ set_prompts() {
     PS1+="\[$(usernamehost)\]"                              # username at host
     PS1+="\[$red\]$FOLDER_ICON \w"                                     # working directory
     PS1+="\$(prompt_git \"$teal on $yellow\" \"$cyan\")"   # git repository details
+    if type prompt_svn &>/dev/null; then
+        PS1+="\$(prompt_svn \"$yellow\")"                      # prompt svn
+    fi
     PS1+="\n"
     PS1+="\[$silver\]$MULTI_LAST \[$reset\]"
 
@@ -164,12 +174,6 @@ if [ -f "$RUSTUP" ]; then
     . "$RUSTUP"
 fi
 unset RUSTUP
-
-IE="$HOME/.ie"
-if [ -f "$IE" ]; then
-    . "$IE"
-fi
-unset IE
 
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

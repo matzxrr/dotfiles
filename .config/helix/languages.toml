@@ -20,7 +20,7 @@ language-servers = ["pyright"]
 # TYPESCRIPT ------------------------------------------------------------------
 [[language]]
 name = "typescript"
-language-servers = ["typescript-language-server", "eslint", "snippets-ls"]
+language-servers = ["typescript-language-server", "eslint"]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
@@ -28,8 +28,6 @@ name = "tsx"
 language-servers = [
   "typescript-language-server",
   "eslint",
-  "emmet-ls",
-  "snippets-ls",
 ]
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 # -----------------------------------------------------------------------------
@@ -42,7 +40,7 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
 name = "jsx"
-language-servers = ["typescript-language-server", "eslint", "emmet-ls"]
+language-servers = ["typescript-language-server", "eslint"]
 grammar = "javascript"
 formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 # -----------------------------------------------------------------------------
@@ -58,7 +56,7 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
 [[language]]
 name = "css"
 formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
-language-servers = ["vscode-css-language-server", "emmet-ls"]
+language-servers = ["vscode-css-language-server"]
 # -----------------------------------------------------------------------------
 
 # YAML ------------------------------------------------------------------------
@@ -127,11 +125,6 @@ format = { enable = true }
 [[language-server.jsonls.config.json.schemas]]
 fileMatch = ["tsconfig.json", "tsconfig.*.json"]
 url = "https://json.schemastore.org/tsconfig.json"
-
-# Emmet HTML Completion -------------------------------------------------------
-[language-server.emmet-ls]
-args = ["--stdio"]
-command = "emmet-language-server"
 
 # ESLint ----------------------------------------------------------------------
 [language-server.eslint]
