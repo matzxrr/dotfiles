@@ -10,6 +10,13 @@ true-color = true
 color-modes = true
 rulers = [80]
 bufferline = "always"
+end-of-line-diagnostics = "hint"
+
+[editor.inline-diagnostics]
+cursor-line = "error"
+other-lines = "error"
+prefix-len = 3
+max-wrap = 10
 
 [editor.lsp]
 display-messages = true

@@ -21,7 +21,7 @@ if ! command -v npm &> /dev/null; then
 fi
 # -----------------------------------------------------------------------------
 
-VERSION="24.07"
+VERSION="25.01.1"
 INSTALL_DIR="$HOME/helix"
 
 echo "Installing Helix v$VERSION in '$INSTALL_DIR'..."
