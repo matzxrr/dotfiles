@@ -152,7 +152,8 @@ set_prompts() {
 export PATH=/opt/diff-so-fancy:$PATH
 export PATH=/home/$USER/.local/share/bob/nvim-bin:$PATH
 export PATH="$PATH:/home/$USER/.local/bin"
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:/usr/local/go/bin" # Add GO path
+export PATH="$PATH:$HOME/go/bin"
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export HOMEBREW_BUNDLE_FILE=~/.config/.brewfile
