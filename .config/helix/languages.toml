@@ -83,10 +83,43 @@ comment-token = "#"
 indent = { tab-width = 4, unit = "t" }
 # -----------------------------------------------------------------------------
 
+# Go --------------------------------------------------------------------------
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["go.work", "go.mod"]
+auto-format = false
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["gopls", "golangci-lint-lsp"]
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "goimports" }
+# -----------------------------------------------------------------------------
 
 ###############################################################################
 ############################# LSP CONFIGS #####################################
 ###############################################################################
+
+# Go LSP ----------------------------------------------------------------------
+[language-server.gopls]
+command = "gopls"
+
+[language-server.gopls.config.hints]
+assignVariableTypes = true
+compositeLiteralFields = true
+constantValues = true
+functionTypeParameters = true
+parameterNames = false
+rangeVariableTypes = true
+
+# Go Linter -------------------------------------------------------------------
+[language-server.golangci-lint-lsp]
+command = "golangci-lint-langserver"
+
+[language-server.golangci-lint-lsp.config]
+command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
 
 # Yaml ------------------------------------------------------------------------
 [language-server.yaml-language-server.config.yaml]

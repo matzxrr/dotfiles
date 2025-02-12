@@ -11,7 +11,7 @@ go install golang.org/x/tools/gopls@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 # Formatter
 go install golang.org/x/tools/cmd/goimports@latest
-# Linter
+# Linter LSP
 go install github.com/nametake/golangci-lint-langserver@latest
 # Linter CLI
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
