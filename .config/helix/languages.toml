@@ -107,12 +107,12 @@ formatter = { command = "goimports" }
 command = "gopls"
 
 [language-server.gopls.config.hints]
-assignVariableTypes = true
-compositeLiteralFields = true
+assignVariableTypes = false
+compositeLiteralFields = false
 constantValues = true
-functionTypeParameters = true
+functionTypeParameters = false
 parameterNames = false
-rangeVariableTypes = true
+rangeVariableTypes = false
 
 # Go Linter -------------------------------------------------------------------
 [language-server.golangci-lint-lsp]
