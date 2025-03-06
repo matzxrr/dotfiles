@@ -1,110 +1,51 @@
+# Disable Broken Grammars
 use-grammars = { except = [ "hare", "wren", "gemini" ] }
 
-# RUST ------------------------------------------------------------------------
-[[language]]
-name = "rust"
-# -----------------------------------------------------------------------------
+# LSP Definition --------------------------------------------------------------
 
-# TOML ------------------------------------------------------------------------
-[[language]]
-name = "toml"
-formatter = { command = "taplo", args = ["fmt", "-"] }
-# -----------------------------------------------------------------------------
+[language-server.biome-lsp]
+command = "biome"
+args = ["lsp-proxy"]
 
-# PYTHON ----------------------------------------------------------------------
-[[language]]
-name = "python"
-language-servers = ["pyright"]
-# -----------------------------------------------------------------------------
+[language-server.tailwindcss-language-server]
+command = "tailwindcss-language-server"
+args = ["--stdio"]
 
-# TYPESCRIPT ------------------------------------------------------------------
-[[language]]
-name = "typescript"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-
-[[language]]
-name = "tsx"
-language-servers = [
-  "typescript-language-server",
-  "eslint",
-]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-# -----------------------------------------------------------------------------
-
-# JAVASCRIPT ------------------------------------------------------------------
-[[language]]
-name = "javascript"
-language-servers = ["typescript-language-server", "eslint"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-
-[[language]]
-name = "jsx"
-language-servers = ["typescript-language-server", "eslint"]
-grammar = "javascript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
-# -----------------------------------------------------------------------------
-
-# JSON ------------------------------------------------------------------------
-[[language]]
-name = "json"
-language-servers = ["jsonls"]
-formatter = { command = 'npx', args = ["prettier", "--parser", "json"] }
-# -----------------------------------------------------------------------------
-
-# CSS -------------------------------------------------------------------------
-[[language]]
-name = "css"
-formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
-language-servers = ["vscode-css-language-server"]
-# -----------------------------------------------------------------------------
-
-# YAML ------------------------------------------------------------------------
-[[language]]
-name = "yaml"
-scope = "source.yaml"
-file-types = ["yml", "yaml"]
-comment-token = "#"
-indent = { tab-width = 2, unit = "  " }
-language-servers = ["yaml-language-server"]
-injection-regex = "yml|yaml"
-formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
-# -----------------------------------------------------------------------------
-
-# Make ------------------------------------------------------------------------
-[[language]]
-name = "make"
-scope = "source.make"
-file-types = ["Makefile", "makefile", "make", "mk", "mak", "GNUmakefile", "OCamlMakefile"]
-shebangs = ["make", "gmake"]
-injection-regex = "(make|makefile|Makefile|mk)"
-roots = []
-comment-token = "#"
-indent = { tab-width = 4, unit = "t" }
-# -----------------------------------------------------------------------------
-
-# Go --------------------------------------------------------------------------
-[[language]]
-name = "go"
-scope = "source.go"
-injection-regex = "go"
-file-types = ["go"]
-roots = ["go.work", "go.mod"]
-auto-format = false
-comment-token = "//"
-block-comment-tokens = { start = "/*", end = "*/" }
-language-servers = ["gopls", "golangci-lint-lsp"]
-indent = { tab-width = 4, unit = "\t" }
-formatter = { command = "goimports" }
-# -----------------------------------------------------------------------------
-
-###############################################################################
-############################# LSP CONFIGS #####################################
-###############################################################################
-
-# Go LSP ----------------------------------------------------------------------
 [language-server.gopls]
 command = "gopls"
+
+[language-server.golangci-list-lsp]
+command = "gloangci-lint-langserver"
+
+[language-server.yaml-language-server]
+command = "yaml-language-server"
+args = ["--stdio"]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[language-server.vscode-css-language-server]
+command = "vscode-css-language-server"
+args = ["--stdio"]
+
+[language-server.jsonls]
+command = "vscode-json-language-server"
+args = ["--stdio"]
+
+[language-server.eslint]
+command = "vscode-eslint-language-server"
+args = ["--stdio"]
+
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+args = ["--stdio"]
+config.hostInfo = "helix"
+
+[language-server.taplo]
+command = "taplo"
+args = ["lsp", "stdio"]
+
+# LSP Config ------------------------------------------------------------------
 
 [language-server.gopls.config.hints]
 assignVariableTypes = false
@@ -114,19 +55,19 @@ functionTypeParameters = false
 parameterNames = false
 rangeVariableTypes = false
 
-# Go Linter -------------------------------------------------------------------
-[language-server.golangci-lint-lsp]
-command = "golangci-lint-langserver"
-
 [language-server.golangci-lint-lsp.config]
-command = ["golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1"]
+command = [
+  "golangci-lint",
+  "run",
+  "--out-format",
+  "json",
+  "--issues-exit-code=1"
+]
 
-# Yaml ------------------------------------------------------------------------
 [language-server.yaml-language-server.config.yaml]
 format = { enable = false }
 validation = true
 
-# Rust Analyzer ---------------------------------------------------------------
 [language-server.rust-analyzer.config]
 inlayHints = { parameterHints = { enable = false } }
 check = { command = "clippy", features = "all" }
@@ -136,17 +77,11 @@ typing = { autoClosingAngleBrackets = { enable = true } }
 cargo = { allFeatures = true }
 procMacro = { enable = true }
 
-# VSCode CSS ------------------------------------------------------------------
 [language-server.vscode-css-language-server.config]
 css = { validate = { enable = true } }
 scss = { validate = { enable = true } }
 less = { validate = { enable = true } }
 provideFormatter = true
-
-# VSCode JSON -----------------------------------------------------------------
-[language-server.jsonls]
-args = ["--stdio"]
-command = "vscode-json-language-server"
 
 [language-server.jsonls.config]
 provideFormatter = true
@@ -158,11 +93,6 @@ format = { enable = true }
 [[language-server.jsonls.config.json.schemas]]
 fileMatch = ["tsconfig.json", "tsconfig.*.json"]
 url = "https://json.schemastore.org/tsconfig.json"
-
-# ESLint ----------------------------------------------------------------------
-[language-server.eslint]
-args = ["--stdio"]
-command = "vscode-eslint-language-server"
 
 [language-server.eslint.config]
 format = true
@@ -179,11 +109,6 @@ codeActionOnSave = { mode = "all" }
 experimental = {}
 problems = { shortenToSingleLine = false }
 workingDirectory = { mode = "auto" }
-
-# Typescript ------------------------------------------------------------------
-[language-server.typescript-language-server.config]
-documentFormatting = false
-hostInfo = "helix"
 
 [language-server.typescript-language-server.config.preferences]
 quotePreference = 'single'
@@ -208,3 +133,98 @@ includeInlayParameterNameHints = "none"
 includeInlayParameterNameHintsWhenArgumentMatchesName = false
 includeInlayPropertyDeclarationTypeHints = false
 includeInlayVariableTypeHints = false
+
+# Language Configs ------------------------------------------------------------
+
+[[language]]
+name = "rust"
+
+[[language]]
+name = "toml"
+scope = "source.toml"
+injection-regex = "toml"
+file-types = ["toml", { glob = "pdm.lock" }, { glob = "poetry.lock" }, { glob = "Cargo.lock" }, { glob = "uv.lock" }]
+comment-token = "#"
+language-servers = [ "taplo" ]
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+  "biome-lsp"
+]
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "tsx"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+  "tailwindcss-language-server",
+  "biome-lsp"
+]
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "javascript"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+  "biome-lsp"
+]
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "jsx"
+language-servers = [
+  { name = "typescript-language-server", except-features = ["format"] },
+  "eslint",
+  "tailwindcss-language-server",
+  "biome-lsp"
+]
+grammar = "javascript"
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+
+[[language]]
+name = "css"
+formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+language-servers = ["vscode-css-language-server"]
+
+[[language]]
+name = "yaml"
+scope = "source.yaml"
+file-types = ["yml", "yaml"]
+comment-token = "#"
+indent = { tab-width = 2, unit = "  " }
+language-servers = ["yaml-language-server"]
+injection-regex = "yml|yaml"
+formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
+
+[[language]]
+name = "make"
+scope = "source.make"
+file-types = ["Makefile", "makefile", "make", "mk", "mak", "GNUmakefile", "OCamlMakefile"]
+shebangs = ["make", "gmake"]
+injection-regex = "(make|makefile|Makefile|mk)"
+roots = []
+comment-token = "#"
+indent = { tab-width = 4, unit = "t" }
+
+[[language]]
+name = "go"
+scope = "source.go"
+injection-regex = "go"
+file-types = ["go"]
+roots = ["go.work", "go.mod"]
+auto-format = false
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = ["gopls", "golangci-lint-lsp"]
+indent = { tab-width = 4, unit = "\t" }
+formatter = { command = "goimports" }

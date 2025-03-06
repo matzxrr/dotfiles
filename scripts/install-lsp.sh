@@ -35,7 +35,7 @@ cargo install taplo-cli --locked --features lsp
 
 # Javascript / Typescript
 echo "Installing TypeScript LSP..."
-npm install -g typescript typescript-language-server
+npm i -g typescript typescript-language-server
 
 # Bash
 echo "Installing Bash LSP..."
@@ -43,13 +43,17 @@ npm i -g bash-language-server
 
 # Python
 echo "Installing Pyright (Python LSP)..."
-npm install -g pyright
+npm i -g pyright
 
 # Linters and Stuff
 echo "Installing Emmet LSP..."
-npm install -g @kozer/emmet-language-server
+npm i -g @kozer/emmet-language-server
 echo "Installing VSCode Language Servers (HTML, CSS, JSON, ESLint)..."
 npm i -g vscode-langservers-extracted #@v4.8.0
+echo "Installing Biome..."
+npm i -g @biomejs/biome
+echo "Install Tailwind LSP..."
+npm i -g @tailwindcss/language-server
 
 # YAML
 echo "Installing YAML LSP..."
