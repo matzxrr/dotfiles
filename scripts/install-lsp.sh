@@ -49,7 +49,7 @@ npm install -g pyright
 echo "Installing Emmet LSP..."
 npm install -g @kozer/emmet-language-server
 echo "Installing VSCode Language Servers (HTML, CSS, JSON, ESLint)..."
-npm i -g vscode-langservers-extracted@v4.8.0
+npm i -g vscode-langservers-extracted #@v4.8.0
 
 # YAML
 echo "Installing YAML LSP..."
