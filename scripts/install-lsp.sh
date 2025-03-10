@@ -49,7 +49,7 @@ npm i -g pyright
 echo "Installing Emmet LSP..."
 npm i -g @kozer/emmet-language-server
 echo "Installing VSCode Language Servers (HTML, CSS, JSON, ESLint)..."
-npm i -g vscode-langservers-extracted #@v4.8.0
+npm i -g vscode-langservers-extracted@v4.8.0
 echo "Installing Biome..."
 npm i -g @biomejs/biome
 echo "Install Tailwind LSP..."
