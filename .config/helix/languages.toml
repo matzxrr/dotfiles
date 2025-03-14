@@ -209,12 +209,11 @@ formatter = { command = 'npx', args = ["prettier", "--parser", "yaml"] }
 [[language]]
 name = "make"
 scope = "source.make"
-file-types = ["Makefile", "makefile", "make", "mk", "mak", "GNUmakefile", "OCamlMakefile"]
+file-types = [{ glob = "Makefile" }, { glob = "makefile" }, "make", "mk", "mak", {glob = "GNUmakefile" }, { glob = "OCamlMakefile" }]
 shebangs = ["make", "gmake"]
 injection-regex = "(make|makefile|Makefile|mk)"
-roots = []
 comment-token = "#"
-indent = { tab-width = 4, unit = "t" }
+indent = { tab-width = 4, unit = "\t" }
 
 [[language]]
 name = "go"

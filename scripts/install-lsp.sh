@@ -31,7 +31,7 @@ rustup component add rust-analyzer
 
 # Taplo, for TOML Files
 echo "Installing Taplo (TOML LSP)..."
-cargo install taplo-cli --locked --features lsp
+cargo install taplo-cli --locked --features lsp --force
 
 # Javascript / Typescript
 echo "Installing TypeScript LSP..."
