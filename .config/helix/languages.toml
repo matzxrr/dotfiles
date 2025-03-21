@@ -159,7 +159,7 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
 name = "tsx"
@@ -169,7 +169,7 @@ language-servers = [
   "tailwindcss-language-server",
   "biome-lsp"
 ]
-# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
 name = "javascript"
@@ -178,7 +178,7 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
 name = "jsx"
@@ -189,7 +189,7 @@ language-servers = [
   "biome-lsp"
 ]
 grammar = "javascript"
-# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
 
 [[language]]
 name = "css"
