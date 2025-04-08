@@ -1,0 +1,6 @@
+[user]
+    name = matzxrr
+    email = matzxrr@gmail.com
+    signingkey = AA1C7ADD08D44AE0
+[init]
+    defaultBranch = master
