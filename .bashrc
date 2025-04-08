@@ -130,8 +130,8 @@ set_prompts() {
     PS1+="\[$(usernamehost)\]"                              # username at host
     PS1+="\[$red\]$FOLDER_ICON \w"                                     # working directory
     PS1+="\$(prompt_git \"$teal on $yellow\" \"$cyan\")"   # git repository details
-    if type prompt_svn &>/dev/null; then
-        PS1+="\$(prompt_svn \"$yellow\")"                      # prompt svn
+    if type prompt_ie_git &>/dev/null; then
+        PS1+="\$(prompt_ie_git \"$charcoal\")"                      # prompt ie git
     fi
     PS1+="\n"
     PS1+="\[$silver\]$MULTI_LAST \[$reset\]"
