@@ -13,21 +13,22 @@ print() {
 
 # Check for command line arguments
 if [ $# -eq 0 ]; then
-    print "Usage: $0 personal|work" "$RED"
+    print "Usage: $0 personal|work-blade|work-laptop" "$RED"
     exit 1
 fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 BASE_CONFIG="$SCRIPT_DIR/base"
-WORK_CONFIG="$SCRIPT_DIR/work"
+WORK_BLADE_CONFIG="$SCRIPT_DIR/work-blade"
+WORK_LAPTOP_CONFIG="$SCRIPT_DIR/work-laptop"
 PERSONAL_CONFIG="$SCRIPT_DIR/personal"
 TARGET_CONFIG="$HOME/.gitconfig"
 
 # Function to create git config
 create_config() {
     # Validate the config type
-    if [ "$1" != "personal" ] && [ "$1" != "work" ]; then
-        print "Invalid config type: $1. Use 'personal' or 'work'." "$RED"
+    if [ "$1" != "personal" ] && [ "$1" != "work-laptop" ] && [ "$1" != "work-blade" ]; then
+        print "Invalid config type: $1. Use 'personal', 'work-laptop' or 'work-blade'." "$RED"
         exit 1
     fi
     
@@ -38,17 +39,28 @@ create_config() {
         print "Error: Base config file not found at $BASE_CONFIG" "$RED"
         exit 1
     fi
+
+    # Add label
+    echo "# $1 config" > "$TARGET_CONFIG"
+    echo "# compiled file, do not edit directly" >> "$TARGET_CONFIG"
     
     # Combine base config with selected profile
-    cat "$BASE_CONFIG" > "$TARGET_CONFIG"
+    cat "$BASE_CONFIG" >> "$TARGET_CONFIG"
     
-    if [ "$1" = "work" ]; then
-        if [ ! -f "$WORK_CONFIG" ]; then
-            print "Error: Work config file not found at $WORK_CONFIG" "$RED"
+    if [ "$1" = "work-blade" ]; then
+        if [ ! -f "$WORK_BLADE_CONFIG" ]; then
+            print "Error: Work config file not found at $WORK_BLADE_CONFIG" "$RED"
             exit 1
         fi
-        cat "$WORK_CONFIG" >> "$TARGET_CONFIG"
-        print "Work Git configuration has been installed!" "$GREEN"
+        cat "$WORK_BLADE_CONFIG" >> "$TARGET_CONFIG"
+        print "Work Blade Git configuration has been installed!" "$GREEN"
+    elif [ "$1" = "work-laptop" ]; then
+        if [ ! -f "$WORK_LAPTOP_CONFIG" ]; then
+            print "Error: Work config file not found at $WORK_LAPTOP_CONFIG" "$RED"
+            exit 1
+        fi
+        cat "$WORK_LAPTOP_CONFIG" >> "$TARGET_CONFIG"
+        print "Work Blade Git configuration has been installed!" "$GREEN"
     else
         if [ ! -f "$PERSONAL_CONFIG" ]; then
             print "Error: Personal config file not found at $PERSONAL_CONFIG" "$RED"
