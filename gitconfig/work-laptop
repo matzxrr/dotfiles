@@ -1,7 +1,0 @@
-[user]
-    name = mgreenberg
-    email = mgreenberg@indexengines.com
-[init]
-    defaultBranch = main
-[core]
-    hooksPath = ~/work/git-hooks

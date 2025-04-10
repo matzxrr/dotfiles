@@ -1,3 +1,4 @@
+# BASE CONFIG
 [core]
     editor = hx
     whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -21,3 +22,14 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+
+# USER BASE CONFIG
+[user]
+    name = matzxrr
+    email = matzxrr@gmail.com
+[init]
+    defaultBranch = master
+
+# SIGN TEST
+[includeIf "hasconfig:remote.origin.url:git@github.com:matzxrr/**"]
+    path = ~/gitconfig/personal
