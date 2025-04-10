@@ -34,4 +34,4 @@
 
 # INCLUDE LAPTOP EXT
 [includeIf "gitdir:~/code/indexengines/"]
-    path = ~/gitconfig/inc/laptop-ext
+    path = ~/.config/gitconfig/inc/laptop-ext

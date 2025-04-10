@@ -34,4 +34,4 @@
 
 # INCLUDE BLADE EXT
 [includeIf "gitdir:/opt/mgreenberg/indexengines/"]
-    path = ~/gitconfig/inc/blade-ext
+    path = ~/.config/gitconfig/inc/blade-ext
