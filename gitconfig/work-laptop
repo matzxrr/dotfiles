@@ -1,7 +1,10 @@
 [user]
     name = mgreenberg
-    email = mgreenberg@indexengines.com
+    email = matthew.greenberg@indexengines.com
+    signingkey = 68A0D79E019A7785
 [init]
     defaultBranch = main
 [core]
     hooksPath = ~/work/git-hooks
+[commit]
+    gpgsign = true
