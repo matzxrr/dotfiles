@@ -1,3 +1,12 @@
+# WORK INFO
+[user]
+    name = mgreenberg
+    email = matthew.greenberg@indexengines.com
+[init]
+    defaultBranch = main
+[core]
+    hooksPath = ~/work/git-hooks
+
 # BASE CONFIG
 [core]
     editor = hx
@@ -23,13 +32,6 @@
     new = green bold
     whitespace = red reverse
 
-# USER BASE CONFIG
-[user]
-    name = matzxrr
-    email = matzxrr@gmail.com
-[init]
-    defaultBranch = master
-
-# SIGN TEST
-[includeIf "hasconfig:remote.origin.url:git@github.com:matzxrr/**"]
-    path = ~/gitconfig/personal
+# INCLUDE LAPTOP EXT
+[includeIf "gitdir:~/code/indexengines"]
+    path = ~/gitconfig/inc/laptop-ext

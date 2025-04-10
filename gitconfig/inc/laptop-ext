@@ -1,0 +1,4 @@
+[user]
+    signingkey = 68A0D79E019A7785
+[commit]
+    gpgsign = true
