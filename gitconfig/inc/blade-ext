@@ -1,1 +1,4 @@
-D59A840DCDDF7D0B
+[user]
+    signingkey = D59A840DCDDF7D0B
+[commit]
+    gpgsign = true
