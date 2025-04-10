@@ -33,5 +33,5 @@
     whitespace = red reverse
 
 # INCLUDE LAPTOP EXT
-[includeIf "gitdir:~/code/indexengines"]
+[includeIf "gitdir:~/code/indexengines/"]
     path = ~/gitconfig/inc/laptop-ext
