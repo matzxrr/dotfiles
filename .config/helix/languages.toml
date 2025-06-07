@@ -45,6 +45,18 @@ config.hostInfo = "helix"
 command = "taplo"
 args = ["lsp", "stdio"]
 
+[language-server.protols]
+command = "protols"
+args = []
+
+[language-server.buf]
+command = "buf"
+args = ["beta", "lsp", "--timeout", "0"]
+
+[language-server.pbkit]
+command = "pb"
+args = ["lsp"]
+
 # LSP Config ------------------------------------------------------------------
 
 [language-server.gopls.config.hints]
@@ -135,6 +147,17 @@ includeInlayPropertyDeclarationTypeHints = false
 includeInlayVariableTypeHints = false
 
 # Language Configs ------------------------------------------------------------
+
+[[language]]
+name = "protobuf"
+scope = "source.proto"
+injection-regex = "proto"
+file-types = ["proto"]
+language-servers = [ "buf", "pbkit", "protols" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+grammar = "proto"
 
 [[language]]
 name = "rust"
