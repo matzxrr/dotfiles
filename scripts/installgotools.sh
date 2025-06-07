@@ -15,3 +15,6 @@ go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/nametake/golangci-lint-langserver@latest
 # Linter CLI
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
+# Buf CLI (protobuf)
+go install github.com/bufbuild/buf/cmd/buf@v1.54.0
