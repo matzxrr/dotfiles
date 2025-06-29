@@ -182,7 +182,8 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.ts"] }
 
 [[language]]
 name = "tsx"
@@ -192,7 +193,8 @@ language-servers = [
   "tailwindcss-language-server",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.tsx"] }
 
 [[language]]
 name = "javascript"
@@ -201,7 +203,8 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.js"] }
 
 [[language]]
 name = "jsx"
@@ -212,11 +215,13 @@ language-servers = [
   "biome-lsp"
 ]
 grammar = "javascript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.jsx"] }
 
 [[language]]
 name = "css"
-formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.css"] }
 language-servers = ["vscode-css-language-server"]
 
 [[language]]
