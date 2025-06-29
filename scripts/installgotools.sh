@@ -18,3 +18,5 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
 # Buf CLI (protobuf)
 go install github.com/bufbuild/buf/cmd/buf@v1.54.0
+# Go GRPC Curl
+go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest
