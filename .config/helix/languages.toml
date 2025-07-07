@@ -4,8 +4,8 @@ use-grammars = { except = [ "hare", "wren", "gemini" ] }
 # LSP Definition --------------------------------------------------------------
 
 [language-server.biome-lsp]
-command = "biome"
-args = ["lsp-proxy"]
+command = "npx"
+args = ["biome","lsp-proxy"]
 
 [language-server.tailwindcss-language-server]
 command = "tailwindcss-language-server"
@@ -44,6 +44,22 @@ config.hostInfo = "helix"
 [language-server.taplo]
 command = "taplo"
 args = ["lsp", "stdio"]
+
+[language-server.protols]
+command = "protols"
+args = []
+
+[language-server.buf]
+command = "buf"
+args = ["beta", "lsp", "--timeout", "0"]
+
+[language-server.pbkit]
+command = "pb"
+args = ["lsp"]
+
+[language-server.bazel-lsp]
+command = "bazel-lsp"
+args = []
 
 # LSP Config ------------------------------------------------------------------
 
@@ -137,6 +153,17 @@ includeInlayVariableTypeHints = false
 # Language Configs ------------------------------------------------------------
 
 [[language]]
+name = "protobuf"
+scope = "source.proto"
+injection-regex = "proto"
+file-types = ["proto"]
+language-servers = [ "buf", "pbkit", "protols" ]
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+indent = { tab-width = 2, unit = "  " }
+grammar = "proto"
+
+[[language]]
 name = "rust"
 
 [[language]]
@@ -159,7 +186,8 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.ts"] }
 
 [[language]]
 name = "tsx"
@@ -169,7 +197,8 @@ language-servers = [
   "tailwindcss-language-server",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.tsx"] }
 
 [[language]]
 name = "javascript"
@@ -178,7 +207,8 @@ language-servers = [
   "eslint",
   "biome-lsp"
 ]
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.js"] }
 
 [[language]]
 name = "jsx"
@@ -189,11 +219,13 @@ language-servers = [
   "biome-lsp"
 ]
 grammar = "javascript"
-formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "typescript"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.jsx"] }
 
 [[language]]
 name = "css"
-formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+# formatter = { command = 'npx', args = ["prettier", "--parser", "css"] }
+formatter = { command = 'npx', args = ["biome", "format", "--stdin-file-path", "buffer.css"] }
 language-servers = ["vscode-css-language-server"]
 
 [[language]]
@@ -227,3 +259,18 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = ["gopls", "golangci-lint-lsp"]
 indent = { tab-width = 4, unit = "\t" }
 formatter = { command = "goimports" }
+
+[[language]]
+name = "starlark"
+scope = "source.starlark"
+injection-regex = "(starlark|bzl|bazel)"
+file-types = ["bzl", "bazel", "BUILD", "BUILD.bazel", "WORKSPACE", "WORKSPACE.bazel"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+roots = ["WORKSPACE", "WORKSPACE.bazel"]
+
+[[language]]
+name = "starlark"
+language-servers = ["bazel-lsp"]
+formatter = { command = "buildifier", args = ["-"] }
+auto-format = false
