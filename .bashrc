@@ -178,3 +178,5 @@ unset RUSTUP
 
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias gitprune="git remote prune origin"
+alias gitbranchd="git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
