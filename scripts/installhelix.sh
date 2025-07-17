@@ -16,7 +16,7 @@ if ! command -v cargo &> /dev/null; then
 fi
 # -----------------------------------------------------------------------------
 
-VERSION="25.01.1"
+VERSION="25.07"
 INSTALL_DIR="$HOME/helix"
 
 echo "Installing Helix v$VERSION in '$INSTALL_DIR'..."

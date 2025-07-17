@@ -179,3 +179,4 @@ unset RUSTUP
 
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias k=kubectl
