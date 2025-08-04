@@ -167,6 +167,10 @@ grammar = "proto"
 name = "rust"
 
 [[language]]
+name = "helm"
+indent = { tab-width = 2, unit = "  " }
+
+[[language]]
 name = "toml"
 scope = "source.toml"
 injection-regex = "toml"
