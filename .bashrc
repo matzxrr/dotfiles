@@ -177,9 +177,13 @@ if [ -f "$RUSTUP" ]; then
 fi
 unset RUSTUP
 
+# Add mise if installed
+if [ -f "${HOME}/.local/bin/mise" ]; then
+  eval "$(mise activate bash)"
+fi
+
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias k=kubectl
 alias gitprune="git remote prune origin"
 alias gitbranchd="git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
-eval "$(/home/matzxrr/.local/bin/mise activate bash)"
