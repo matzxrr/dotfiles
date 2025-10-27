@@ -177,11 +177,6 @@ if [ -f "$RUSTUP" ]; then
 fi
 unset RUSTUP
 
-# Add mise if installed
-if [ -f "${HOME}/.local/bin/mise" ]; then
-  eval "$(mise activate bash)"
-fi
-
 ## My Aliases
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias k=kubectl
