@@ -182,3 +182,4 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias k=kubectl
 alias gitprune="git remote prune origin"
 alias gitbranchd="git branch -vv | grep ': gone]' | awk '{print $1}' | xargs git branch -d"
+eval "$(/home/matzxrr/.local/bin/mise activate bash)"
